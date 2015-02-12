@@ -50,13 +50,16 @@ public class AIClient {
 			rot += 1;
 		} 
 		
+		//rotate the block to the chosen orientation
 		int currentAngle = 0;
 		while (currentAngle < rotationAngle) {
 			board._block.rotate();
 			currentAngle += 1;
 		}
 		
+		//Reset translation to pass to weight calculator
 		block._translation = new Point();
+		
 		int centerj = block.getCenter().j;
 		
 		if(centerj < centerFinal.j) {
@@ -70,13 +73,13 @@ public class AIClient {
 			}
 		}
 		
+		//Flush the commands and send them all to the server
 		System.out.flush();
 	}
 
 	public static ArrayList<Point> dropSpots(Board board, Block block) {
 		ArrayList<Point> result = new ArrayList<Point>();
 		//first move it all the way to the left
-		// the following "AI" moves a piece as far left as possible
 		while (block.checkedLeft(board)) {
 			block.left();
 		}
@@ -90,13 +93,8 @@ public class AIClient {
 			while (block.checkedUp(board)) {
 				block.up();
 			}
+			//move to the next column
 			block.right();
-		}
-		while (block.checkedUp(board)) {
-			block.up();
-		}
-		while (block.checkedLeft(board)) {
-			block.left();
 		}
 		return result;
 	}
