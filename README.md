@@ -1,6 +1,11 @@
 # Tetris-AI
 
-In development - designed for a coding challenge.
+In development - designed for DropBox AI Challenge.
+
+Team:
+Akshat Agarwal
+Krishna Bharathala
+Devesh Dayal
 
 After you get the main challenge files in a folder, compile these java class files with:
 
